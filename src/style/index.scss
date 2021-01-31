@@ -135,6 +135,13 @@ button:focus {
     button:active {
       transform: scale(0.97);
     }
+
+    .succes-validation {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40vh;
+    }
   }
 }
 

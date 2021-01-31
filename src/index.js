@@ -6,14 +6,13 @@ const username = document.querySelector('#username');
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
 const paswordTwo = document.querySelector('#passwordTwo');
+const succesForm = [false, false, false, false];
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
+form.addEventListener('submit', checkInputs);
 
-  checkInputs();
-});
+function checkInputs(event) {
+  event.preventDefault();
 
-function checkInputs() {
   const userNameValue = username.value.trim();
   const emailValue = email.value.trim();
   const passwordValue = password.value.trim();
@@ -21,30 +20,65 @@ function checkInputs() {
 
   if (userNameValue === '') {
     setErrorFor(username, 'Username cannot be blank');
+    succesForm[0] = false;
   } else {
     setSuccesFor(username);
+    succesForm[0] = true;
   }
 
   if (emailValue === '') {
     setErrorFor(email, 'Email cannot be blank');
+    succesForm[1] = false;
   } else if (!isEmail(emailValue)) {
     setErrorFor(email, 'Email is not valid');
+    succesForm[1] = false;
   } else {
     setSuccesFor(email);
+    succesForm[1] = true;
   }
 
   if (passwordValue === '') {
     setErrorFor(password, 'Password cannot be blank');
+    succesForm[2] = false;
   } else {
     setSuccesFor(password);
+    succesForm[2] = true;
   }
 
   if (passwordTwoValue === '') {
     setErrorFor(passwordTwo, 'Password cannot be blank');
+    succesForm[3] = false;
   } else if (passwordValue !== passwordTwoValue) {
     setErrorFor(passwordTwo, 'Passwords must be the same');
+    succesForm[3] = false;
   } else {
     setSuccesFor(passwordTwo);
+    succesForm[3] = true;
+  }
+
+  showSuccesValidationMessage(userNameValue);
+}
+
+function showSuccesValidationMessage(userNameValue) {
+  if (
+    succesForm[0] === true &&
+    succesForm[1] === true &&
+    succesForm[2] === true &&
+    succesForm[3] === true
+  ) {
+    const validFormMessage = document.createElement('div');
+    const validFormBtn = document.createElement('button');
+
+    validFormBtn.innerText = 'Back';
+
+    validFormMessage.classList.add('succes-validation');
+    validFormMessage.innerText = `Welcome ${userNameValue}`;
+
+    form.innerHTML = '';
+    form.append(validFormMessage);
+    form.appendChild(validFormBtn);
+
+    form.removeEventListener('submit', checkInputs);
   }
 }
 
