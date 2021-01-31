@@ -51,7 +51,7 @@ body {
       }
 
       input {
-        border: 2px solid #eee;
+        border: 2px solid $font-color;
         outline: none;
         display: block;
         width: 100%;
@@ -71,7 +71,7 @@ body {
 
       small {
         position: absolute;
-        bottom: 25px;
+        bottom: -5px;
         left: 10px;
         visibility: hidden;
       }
