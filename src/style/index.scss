@@ -1,7 +1,12 @@
-$font-color: rgba(238, 238, 238, 0.774);
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
 $background-color: #00000fda;
 $font-size: 1.2rem;
-$font-family: 'Fira Code', monospace;
+$font-family: 'Ubuntu', sans-serif;
+$container-color: rgba(0, 0, 0, 0.5);
+$white-color: #eee;
+$succes-color: #2eccc9;
+$error-color: #e74c3c;
 
 * {
   box-sizing: border-box;
@@ -12,7 +17,7 @@ $font-family: 'Fira Code', monospace;
 body {
   background-color: $background-color;
   font-size: $font-size;
-  color: $font-color;
+  color: $white-color;
   font-family: $font-family;
   display: flex;
   justify-content: center;
@@ -21,15 +26,15 @@ body {
 }
 
 .container {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: $container-color;
   border-radius: 10px;
-  width: calc(60% + 10px);
-  max-width: 100%;
+  width: calc(40% + 7rem);
   overflow: hidden;
+  max-height: 100vh;
 
   .header {
     padding: 20px 40px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid $white-color;
 
     h2 {
       margin: 0;
@@ -51,15 +56,15 @@ body {
       }
 
       input {
-        border: 2px solid $font-color;
+        border: 2px solid $background-color;
         outline: none;
         display: block;
         width: 100%;
         padding: 0.3rem;
         font-size: 0.7rem;
         font-family: inherit;
-        background-color: $background-color;
-        color: #eee;
+        background-color: $white-color;
+        color: $background-color;
       }
 
       i {
@@ -79,34 +84,34 @@ body {
 
     .succes {
       input {
-        border-color: #2eccc9;
+        border-color: $succes-color;
       }
 
       i.fa-check-circle {
         visibility: visible;
-        color: #2eccc9;
+        color: $succes-color;
       }
     }
 
     .error {
       input {
-        border-color: #e74c3c;
+        border-color: $error-color;
       }
 
       i.fa-exclamation-circle {
         visibility: visible;
-        color: #e74c3c;
+        color: $error-color;
       }
 
       small {
         visibility: visible;
-        color: #e74c3c;
+        color: $error-color;
       }
     }
 
     button {
       background-color: $background-color;
-      color: $font-color;
+      color: $white-color;
       border: 2px solid $background-color;
       display: block;
       width: 100%;
@@ -117,3 +122,40 @@ body {
     }
   }
 }
+
+@media (max-width: 580px) {
+  .container {
+    height: 85vh;
+    width: 100%;
+
+    .header {
+      padding: 10px 20px;
+    }
+
+    .form {
+      padding: 15px;
+
+      .form-control {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+
+        label {
+          margin-bottom: 0;
+        }
+
+        small {
+          bottom: -10px;
+          left: 0;
+        }
+
+        i {
+          top: 34px;
+        }
+      }
+
+      button {
+        padding: 20px 0;
+      }
+    }
+  }
+} ;
