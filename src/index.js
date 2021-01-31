@@ -55,6 +55,10 @@ function setErrorFor(input, message) {
   small.innerText = message;
 
   formControl.className = 'form-control error';
+
+  setTimeout(() => {
+    formControl.className = 'form-control';
+  }, 4000);
 }
 
 function setSuccesFor(input) {
