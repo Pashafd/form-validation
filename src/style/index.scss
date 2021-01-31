@@ -25,12 +25,18 @@ body {
   min-height: 100vh;
 }
 
+button:active,
+button:focus {
+  outline: none;
+}
+
 .container {
   background-color: $container-color;
   border-radius: 10px;
   width: calc(40% + 7rem);
   overflow: hidden;
   max-height: 100vh;
+  box-shadow: 10px 5px 50px $container-color;
 
   .header {
     padding: 20px 40px;
@@ -69,7 +75,7 @@ body {
 
       i {
         position: absolute;
-        top: 42px;
+        top: 39px;
         right: 10px;
         visibility: hidden;
       }
@@ -119,7 +125,28 @@ body {
       font-size: 1rem;
       border-radius: 5px;
       font-family: inherit;
+      transition: transform 0.2s ease;
     }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+  }
+}
+
+@media (max-width: 581px) {
+  .container {
+    width: 40%;
+  }
+}
+
+@media (max-width: 1600px) {
+  .container {
+    width: 500px;
   }
 }
 

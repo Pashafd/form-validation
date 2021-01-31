@@ -36,7 +36,16 @@
 
         <div class="form-control">
           <label>Password</label>
-          <input type="password" placeholder="Password" id="password" />
+          <input
+            name="password"
+            autocomplete="new-password"
+            type="password"
+            placeholder="Password"
+            id="password"
+            title="Minimum 8 characters, one number, one uppercase and one lowercase letter"
+            required
+            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+          />
           <i class="fas fa-check-circle"></i>
           <i class="fas fa-exclamation-circle"></i>
           <small>Error message</small>
@@ -45,9 +54,14 @@
         <div class="form-control">
           <label>Password</label>
           <input
+            name="password"
+            autocomplete="new-password"
             type="password"
             placeholder="Password check"
             id="passwordTwo"
+            title="Minimum 8 characters, one number, one uppercase and one lowercase letter"
+            required
+            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
           />
           <i class="fas fa-check-circle"></i>
           <i class="fas fa-exclamation-circle"></i>
