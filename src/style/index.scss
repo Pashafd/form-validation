@@ -63,6 +63,7 @@ button:focus {
 
       input {
         border: 2px solid $background-color;
+        height: 50px;
         outline: none;
         display: block;
         width: 100%;
@@ -116,12 +117,12 @@ button:focus {
     }
 
     button {
-      background-color: $background-color;
+      background-color: $error-color;
       color: $white-color;
       border: 2px solid $background-color;
       display: block;
       width: 100%;
-      padding: 10px;
+      padding: 15px;
       font-size: 1rem;
       border-radius: 5px;
       font-family: inherit;
@@ -159,7 +160,7 @@ button:focus {
 
 @media (max-width: 580px) {
   .container {
-    height: 85vh;
+    height: 80vh;
     width: 100%;
 
     .header {
@@ -168,6 +169,7 @@ button:focus {
 
     .form {
       padding: 15px;
+      height: 85%;
 
       .form-control {
         margin-bottom: 10px;
@@ -185,10 +187,15 @@ button:focus {
         i {
           top: 34px;
         }
+
+        input {
+          height: 39px;
+        }
       }
 
       button {
         padding: 20px 0;
+        margin-top: 40px;
       }
     }
   }
